@@ -1,0 +1,67 @@
+{
+  "kind": "build_request",
+  "title": "Add a pie chart visualization to the Meme Coin Style (Fun + Viral) tokenomics subsection",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-24",
+      "text": "Add a second pie/donut chart visualization inside the \"🐺 Meme Coin Style Version (Fun + Viral)\" card in the Tokenomics section to visually represent the same $LWOLF allocation breakdown (35% Public Sale, 20% Liquidity, 15% Rewards, 10% Marketing, 10% Dev Team, 5% Airdrops, 5% Treasury), while keeping the existing meme-style text content intact and in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Meme Coin Style Version (Fun + Viral)  make in PIE Chart also"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Tokenomics section still contains the existing main animated tokenomics chart and allocation table unchanged.",
+        "Within the Meme Coin Style card, a pie/donut chart is rendered in addition to (not instead of) the existing meme-style bullet lines.",
+        "The meme chart displays exactly these seven slices and percentages: 35, 20, 15, 10, 10, 5, 5, matching the meme bullets (Public Sale, Liquidity, Rewards, Marketing, Dev Team, Airdrops, Treasury).",
+        "All user-facing text remains in English and the existing meme copy remains present and readable."
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Ensure the Meme Coin Style pie/donut chart matches the existing neon dark styling and animations used by the current Tokenomics chart (glow, hover feedback, scroll/entrance animation), and remains mobile-responsive (chart and legend/content stack cleanly on small screens).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Meme Coin Style Version (Fun + Viral)  make in PIE Chart also"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The meme chart uses the same overall visual language as the existing TokenomicsChart (neon glow/shadows, smooth transitions).",
+        "On mobile widths, the meme chart does not overflow horizontally and the layout remains readable (chart and supporting content stack vertically).",
+        "If reduced-motion is enabled by the user, the meme chart does not force continuous rotation animations (follow the app’s existing motion conventions)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/components/ui (Shadcn components); compose them instead.",
+    "Backend changes are not required for this request; keep the Motoko backend unchanged."
+  ],
+  "nonGoals": [
+    "Do not replace or remove the existing main Tokenomics animated chart at the top of the Tokenomics section.",
+    "Do not change the token allocation values, table rows, or existing whitepaper/professional copy.",
+    "Do not add backend-driven tokenomics or presale logic as part of this change."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

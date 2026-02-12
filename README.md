@@ -1,2 +1,3 @@
-# replace-penguin-copy-with-wolf-across-the-site
-Exported from Caffeine project: Lost Wolf Coin ($LWOLF) cinematic dark-themed token website
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

@@ -1,0 +1,24 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T12:29:39.210Z",
+  "summary": "Diff adds a new MemeTokenomicsChart component and wires it into the Tokenomics section while keeping the existing main TokenomicsChart and allocation table intact (as shown in the modified Tokenomics.tsx snippet). The new chart renders seven slices with the specified labels and percentages and includes neon/glow styling, hover feedback, and an entrance/scroll animation via useInView. One potential REQ-25 gap is reduced-motion handling: rotation is disabled when prefers-reduced-motion is set, but other continuous animations (pulse-glow) appear to remain enabled.",
+  "missing_requirements": [
+    {
+      "id": "REQ-25",
+      "requirement": "If reduced-motion is enabled by the user, the meme chart should not force continuous animations (follow existing motion conventions).",
+      "reason": "Rotation is conditionally disabled when prefers-reduced-motion is true, but the SVG still applies continuous pulsing animations (animate-pulse-glow) unconditionally on multiple circles, which may violate reduced-motion expectations.",
+      "evidence": [
+        "frontend/src/components/MemeTokenomicsChart.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.62,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/MemeTokenomicsChart.tsx",
+    "frontend/src/components/Tokenomics.tsx",
+    "project_state.json"
+  ]
+}

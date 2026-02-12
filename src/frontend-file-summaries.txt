@@ -1,0 +1,23 @@
+{
+  "frontend/src/App.tsx": "Main application component composing Header, Hero, Story, Tokenomics, Presale, Roadmap, Gallery, Community, and Footer sections in a single-page cinematic layout.",
+  "frontend/src/components/Header.tsx": "Sticky navigation header with Lost Wolf Coin branding, smooth scroll anchor links to all sections including Presale, mobile menu, and non-functional Wallet Connect placeholder button with neon styling.",
+  "frontend/src/components/Hero.tsx": "Full-screen hero section with parallax background, animated wolf with glowing eyes, exact headline/subtext, and three CTAs (Buy $LWOLF, Join The Pack, Read Whitepaper) with neon glow effects.",
+  "frontend/src/components/Features.tsx": "Features section displaying four key WOLF benefits in a responsive card grid with icons and descriptions.",
+  "frontend/src/components/Footer.tsx": "Footer with Lost Wolf Coin branding, Terms/Privacy/Contact links, exact copyright text \"Copyright © 2026 Lost Wolf Coin\", and Caffeine.ai attribution with UTM tracking.",
+  "frontend/src/index.css": "Global styles with icy-blue neon OKLCH color system for dark theme, custom glow utilities, scroll animations, and cinematic keyframes with reduced-motion support.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Orbitron display font, neon glow shadows, cinematic animations (float, pulse-glow, breathe, rotate-slow), and chart color tokens.",
+  "frontend/index.html": "HTML entry point with Lost Wolf Coin branding, dark mode enabled by default, and meta description for the cinematic crypto landing page.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks file with example structure for backend data fetching operations.",
+  "frontend/src/components/Tokenomics.tsx": "Comprehensive tokenomics section with animated chart, allocation table, professional whitepaper content, and meme-style version now including an interactive pie chart visualization alongside the existing meme bullet points, all with neon-bordered cards and scroll animations.",
+  "frontend/src/components/Story.tsx": "Story/Lore section with exact title \"The Legend of Lost Wolf\" and provided text, featuring split city/forest background and animated wolf scene with scroll-triggered reveals.",
+  "frontend/src/components/TokenomicsChart.tsx": "Animated glowing donut chart component displaying all seven token allocation categories with slow rotation animation, neon glow effects, and interactive legend.",
+  "frontend/src/components/Roadmap.tsx": "Quest timeline roadmap section with four exact phases (Awakening, City Hunt, Partner Discovery, Pack Expansion), glowing icons, and scroll-triggered animations in alternating layout.",
+  "frontend/src/components/Gallery.tsx": "Animated gallery section displaying exactly six cinematic scene cards in responsive grid with hover glow effects, scale animations, and scroll-triggered reveals.",
+  "frontend/src/components/Community.tsx": "Community section with Discord, Twitter/X, and Telegram CTAs featuring animated glowing social icons with bounce effects and neon hover states.",
+  "frontend/src/hooks/useInView.ts": "Custom IntersectionObserver hook for scroll-triggered animations that reveals elements when they enter viewport with configurable threshold, now accepting nullable element refs.",
+  "frontend/src/hooks/useParallax.ts": "Lightweight parallax scroll hook for background layers with graceful degradation for reduced-motion preferences.",
+  "frontend/src/hooks/useCountdown.ts": "React hook that calculates and returns live countdown time (days, hours, minutes, seconds) to a target date, updating every second with an ended flag when time expires.",
+  "frontend/src/hooks/useLinearTokenProgress.ts": "React hook that computes live-updating token sales progress with linear interpolation between baseline and total tokens based on phase start/end times, clamping values to valid ranges.",
+  "frontend/src/components/Presale.tsx": "Presale section component displaying three phases with Phase 1 active (15% baseline sold, live countdown timer, live token progress bar), Phase 2 and Final Stage locked with waiting messages, using neon-themed cards and scroll-reveal animations.",
+  "frontend/src/components/MemeTokenomicsChart.tsx": "Animated donut chart component displaying the seven meme-style token allocations (Public Sale 35%, Liquidity 20%, Rewards 15%, Marketing 10%, Dev Team 10%, Airdrops 5%, Treasury 5%) with neon glow effects, hover interactions, emoji-enhanced legend, and reduced-motion support."
+}

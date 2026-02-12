@@ -1,0 +1,50 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Meme Coin Style tokenomics pie/donut chart inside Tokenomics section",
+  "requirements": [
+    {
+      "id": "REQ-24",
+      "summary": "Render an additional pie/donut chart inside the Meme Coin Style tokenomics card showing the same $LWOLF allocation breakdown while preserving the existing meme bullet text in English.",
+      "acceptanceCriteria": [
+        "The Tokenomics section still contains the existing main animated tokenomics chart and allocation table unchanged.",
+        "Within the Meme Coin Style card, a pie/donut chart is rendered in addition to (not instead of) the existing meme-style bullet lines.",
+        "The meme chart displays exactly these seven slices and percentages: 35, 20, 15, 10, 10, 5, 5, matching the meme bullets (Public Sale, Liquidity, Rewards, Marketing, Dev Team, Airdrops, Treasury).",
+        "All user-facing text remains in English and the existing meme copy remains present and readable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MemeTokenomicsChart.tsx",
+          "operation": "create",
+          "description": "Create a dedicated MemeTokenomicsChart component (SVG pie/donut) with exactly 7 slices and labels matching the meme bullets (Public Sale 35, Liquidity 20, Rewards 15, Marketing 10, Dev Team 10, Airdrops 5, Treasury 5). Mirror the existing TokenomicsChart visual approach (donut hole, glow rings, hover slice feedback) but keep it scoped for use inside the Meme Coin Style card. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Tokenomics.tsx",
+          "operation": "modify",
+          "description": "Wire MemeTokenomicsChart into the \"🐺 Meme Coin Style Version (Fun + Viral)\" CardContent so the chart renders in addition to (not replacing) the current meme bullet lines. Keep the existing TokenomicsChart and allocation table unchanged, and keep all existing meme-style English copy intact and readable. Use the existing shadcn-ui Card layout (compose only; do not modify files under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Match the existing neon dark styling and motion conventions for the Meme Coin Style chart, including glow, hover feedback, entrance animation, and mobile-responsive layout with reduced-motion support.",
+      "acceptanceCriteria": [
+        "The meme chart uses the same overall visual language as the existing TokenomicsChart (neon glow/shadows, smooth transitions).",
+        "On mobile widths, the meme chart does not overflow horizontally and the layout remains readable (chart and supporting content stack vertically).",
+        "If reduced-motion is enabled by the user, the meme chart does not force continuous rotation animations (follow the app’s existing motion conventions)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MemeTokenomicsChart.tsx",
+          "operation": "modify",
+          "description": "Implement TokenomicsChart-consistent neon-dark styling (drop-shadows/glow, hover transitions, legend styling) and scroll/entrance animation using the existing useInView hook. Ensure responsiveness by using a flex/grid layout that stacks cleanly on small screens and constrains chart sizing to prevent horizontal overflow. Add reduced-motion handling (e.g., avoid applying continuous rotate animation when prefers-reduced-motion is enabled, consistent with existing app motion conventions). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Tokenomics.tsx",
+          "operation": "modify",
+          "description": "Adjust the Meme Coin Style card layout to be mobile-responsive (chart + meme bullets/legend stack vertically on small screens and align side-by-side when space allows), while preserving the existing content and ensuring glow/hover visuals remain consistent with the rest of the Tokenomics section. Use existing Tailwind utilities and existing shadcn-ui components (compose only). Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

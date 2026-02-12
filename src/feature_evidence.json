@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-second-pie-donut-chart-visualization-inside-the-meme-coin-style-version-fun-viral-card-in-the-tokenomics-section-to-visually-represent-the-same-lwolf-allocation-breakdown-35-public-sale-20-liquidity-15-rewards-10-marketing-10-dev-team-5-airdrops-5-treasury-while-keeping-the-existing-meme-style-text-content-intact-and-in-english",
+      "featureTitle": "Add a second pie/donut chart visualization inside the \"🐺 Meme Coin Style Version (Fun + Viral)\" card in the Tokenomics section to visually represent the same $LWOLF allocation breakdown (35% Public Sale, 20% Liquidity, 15% Rewards, 10% Marketing, 10% Dev Team, 5% Airdrops, 5% Treasury), while keeping the existing meme-style text content intact and in English.",
+      "files": [
+        "frontend/src/components/MemeTokenomicsChart.tsx",
+        "frontend/src/components/Tokenomics.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-meme-coin-style-pie-donut-chart-matches-the-existing-neon-dark-styling-and-animations-used-by-the-current-tokenomics-chart-glow-hover-feedback-scroll-entrance-animation-and-remains-mobile-responsive-chart-and-legend-content-stack-cleanly-on-small-screens",
+      "featureTitle": "Ensure the Meme Coin Style pie/donut chart matches the existing neon dark styling and animations used by the current Tokenomics chart (glow, hover feedback, scroll/entrance animation), and remains mobile-responsive (chart and legend/content stack cleanly on small screens).",
+      "files": [
+        "frontend/src/components/MemeTokenomicsChart.tsx",
+        "frontend/src/components/Tokenomics.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

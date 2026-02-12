@@ -1,0 +1,53 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T12:29:39.213Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-24",
+        "summary": "Add a second pie/donut chart visualization inside the \"🐺 Meme Coin Style Version (Fun + Viral)\" card in the Tokenomics section to visually represent the same $LWOLF allocation breakdown (35% Public Sale, 20% Liquidity, 15% Rewards, 10% Marketing, 10% Dev Team, 5% Airdrops, 5% Treasury), while keeping the existing meme-style text content intact and in English.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/MemeTokenomicsChart.tsx",
+          "frontend/src/components/Tokenomics.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/MemeTokenomicsChart.tsx",
+          "frontend/src/components/Tokenomics.tsx"
+        ]
+      },
+      {
+        "id": "REQ-25",
+        "summary": "Ensure the Meme Coin Style pie/donut chart matches the existing neon dark styling and animations used by the current Tokenomics chart (glow, hover feedback, scroll/entrance animation), and remains mobile-responsive (chart and legend/content stack cleanly on small screens).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/MemeTokenomicsChart.tsx",
+          "frontend/src/components/Tokenomics.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/MemeTokenomicsChart.tsx",
+          "frontend/src/components/Tokenomics.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/MemeTokenomicsChart.tsx",
+    "frontend/src/components/Tokenomics.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
