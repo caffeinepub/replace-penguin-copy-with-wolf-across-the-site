@@ -1,11 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Add a pie/donut chart visualization to the “🐺 Meme Coin Style Version (Fun + Viral)” tokenomics card while keeping the existing tokenomics chart, table, and meme-style text intact.
+**Goal:** Add a temporary, admin-only way to download a single Project ZIP from the app, and then remove/disable the download after use.
 
 **Planned changes:**
-- Add a second pie/donut chart inside the Meme Coin Style tokenomics card representing the same $LWOLF allocation breakdown (Public Sale 35%, Liquidity 20%, Rewards 15%, Marketing 10%, Dev Team 10%, Airdrops 5%, Treasury 5%).
-- Match the meme chart’s neon/dark styling and interaction/entrance animations to the existing Tokenomics chart (glow, hover feedback, smooth transitions) while respecting reduced-motion settings.
-- Ensure the Meme Coin Style card layout remains mobile-responsive (chart and accompanying content stack cleanly without horizontal overflow).
+- Backend: store and persist a single Project ZIP archive; provide a read method that returns the ZIP bytes for browser download.
+- Backend: add an owner/admin-restricted method to clear/delete the stored ZIP so it is no longer downloadable.
+- Frontend: implement `frontend/src/components/ProjectZipDownload.tsx` with two actions: “Download Project ZIP” and “Remove/Disable Download”, with clear status messaging.
+- Frontend: gate the component so it is not shown to normal visitors (e.g., enabled only via an admin-only flag/query param) and wire access somewhere that does not re-add a public download section on the landing page.
 
-**User-visible outcome:** In the Tokenomics section, users will continue to see the main animated chart and allocation table unchanged, and will additionally see a neon-styled pie/donut chart inside the Meme Coin Style card that visualizes the same meme allocation percentages alongside the existing meme text.
+**User-visible outcome:** In admin-only mode, the user can download `project.zip` from the app and then remove/disable the download so it’s no longer available; normal visitors won’t see the download UI.

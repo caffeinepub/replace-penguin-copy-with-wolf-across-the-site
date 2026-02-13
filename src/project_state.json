@@ -1,211 +1,26 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
-  "summary": "Build a premium dark-themed cinematic Web3 token website for Lost Wolf Coin ($LWOLF) with neon night styling, smooth/parallax scrolling, glowing UI, animated wolf illustrations, required sections (Hero, Story/Lore, Tokenomics with animated chart, Roadmap, Animated Gallery, Community, Footer), plus a front-page Presale section with phase-based countdowns and sold-tokens countdown, mobile responsiveness, sticky navbar, smooth scroll, animated CTAs, and optional wallet connect placeholder.",
+  "projectStateVersion": 3,
+  "summary": "New project",
   "architectural_notes": [
-    "Use smooth scroll + parallax/fade-in animations site-wide; include animated tokenomics chart and animated illustration sections (wolf character + split city/forest background).",
-    "Add a Presale section on the front page with phase-based countdown timers and a sold-tokens countdown/indicator (Phase 1 starts at 15% sold; include 2nd and final stages)."
+    "If implementing a download button, restrict access (auth/admin-only) and plan to remove/disable it after download; consider using a backend export endpoint to package files (e.g., ZIP) rather than exposing raw directories."
   ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-replace-every-user-visible-occurrence-of-the-word-penguin-with-wolf-across-the-entire-react-ui-including-headings-body-text-buttons-navigation-labels-empty-states-footers-and-any-hardcoded-strings-preserve-surrounding-punctuation-spacing-and-capitalization-rules-except-that-the-replacement-word-must-appear-exactly-as-wolf",
-      "title": "Replace every user-visible occurrence of the word \"penguin\" with \"WOLF\" across the entire React UI (including headings, body text, buttons, navigation labels, empty states, footers, and any hardcoded strings). Preserve surrounding punctuation, spacing, and capitalization rules except that the replacement word must appear exactly as \"WOLF\".",
-      "reqIds": [
-        "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-a-single-coherent-visual-theme-across-the-app-colors-typography-spacing-and-component-styling-and-enforce-it-consistently-throughout-all-screens",
-      "title": "Apply a single coherent visual theme across the app (colors, typography, spacing, and component styling) and enforce it consistently throughout all screens.",
+      "id": "feature-implement-the-currently-empty-frontend-component-frontend-src-components-projectzipdownload-tsx-as-a-temporary-admin-only-ui-that-lets-a-user-download-the-project-zip-and-then-remove-disable-it-after-download",
+      "title": "Implement the currently-empty frontend component `frontend/src/components/ProjectZipDownload.tsx` as a temporary admin-only UI that lets a user download the Project ZIP and then remove/disable it after download.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-a-new-user-visible-section-to-the-single-page-react-app-titled-lost-wolf-coin-lwolf-full-tokenomics-that-includes-1-total-supply-1-000-000-000-lwolf-2-an-allocation-breakdown-rendered-as-a-table-with-rows-and-exact-values-public-sale-35-350-000-000-liquidity-pool-20-200-000-000-ecosystem-rewards-15-150-000-000-marketing-partnerships-10-100-000-000-team-development-vested-10-100-000-000-community-airdrop-5-50-000-000-treasury-future-fund-5-50-000-000-3-a-whitepaper-section-professional-subsection-with-the-provided-professional-copy-paragraphs-and-vesting-bullets-12-month-cliff-and-gradual-release-over-24-months-and-4-a-meme-coin-style-version-fun-viral-subsection-with-the-provided-meme-style-copy-including-the-emoji-led-lines-all-user-facing-text-in-this-section-must-be-in-english-and-must-match-the-user-provided-wording-and-numbers",
-      "title": "Add a new user-visible section to the single-page React app titled \"LOST WOLF COIN ($LWOLF) — Full Tokenomics\" that includes: (1) total supply \"1,000,000,000 $LWOLF\"; (2) an allocation breakdown rendered as a table with rows and exact values: Public Sale 35% 350,000,000; Liquidity Pool 20% 200,000,000; Ecosystem Rewards 15% 150,000,000; Marketing & Partnerships 10% 100,000,000; Team & Development (Vested) 10% 100,000,000; Community Airdrop 5% 50,000,000; Treasury / Future Fund 5% 50,000,000; (3) a \"Whitepaper Section (Professional)\" subsection with the provided professional copy paragraphs and vesting bullets (\"12-month cliff\" and \"Gradual release over 24 months\"); and (4) a \"Meme Coin Style Version (Fun + Viral)\" subsection with the provided meme-style copy (including the emoji-led lines). All user-facing text in this section must be in English and must match the user-provided wording and numbers.",
+      "id": "feature-wire-the-temporary-project-zip-download-ui-into-the-app-in-a-way-that-does-not-reintroduce-the-removed-download-section-on-the-public-landing-page-hero-while-still-allowing-the-user-to-access-it-when-needed",
+      "title": "Wire the temporary Project ZIP download UI into the app in a way that does not reintroduce the removed download section on the public landing page (hero), while still allowing the user to access it when needed.",
       "reqIds": [
         "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-navigation-access-to-the-new-tokenomics-content-by-adding-a-tokenomics-anchor-link-in-the-header-navigation-that-scrolls-to-the-new-section-e-g-href-tokenomics-and-ensure-the-tokenomics-section-has-a-matching-id-for-in-page-navigation",
-      "title": "Add navigation access to the new Tokenomics content by adding a \"Tokenomics\" anchor link in the header navigation that scrolls to the new section (e.g., href=\"#tokenomics\"), and ensure the tokenomics section has a matching id for in-page navigation.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-single-page-react-app-to-match-the-lost-wolf-coin-lwolf-cinematic-emotional-web3-modern-narrative-dark-night-theme-with-icy-blue-neon-highlights-glowing-ui-effects-bold-modern-typography-rounded-crypto-ui-cards-and-a-futuristic-meme-coin-vibe-similar-in-feel-to-wolfyxrpl-com",
-      "title": "Update the single-page React app to match the \"Lost Wolf Coin ($LWOLF)\" cinematic, emotional, Web3-modern narrative: dark night theme with icy blue neon highlights, glowing UI effects, bold modern typography, rounded crypto UI cards, and a futuristic meme-coin vibe similar in feel to wolfyxrpl.com.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-replace-the-current-hero-content-with-the-required-full-screen-hero-section-headline-lost-wolf-coin-the-hunt-begins-subtext-a-wolf-lost-in-the-city-searching-for-the-missing-piece-of-his-soul-and-three-cta-buttons-labeled-exactly-buy-lwolf-join-the-pack-and-read-whitepaper",
-      "title": "Replace the current Hero content with the required full-screen Hero Section: headline \"Lost Wolf Coin — The Hunt Begins\", subtext \"A wolf lost in the city, searching for the missing piece of his soul.\", and three CTA buttons labeled exactly \"Buy $LWOLF\", \"Join The Pack\", and \"Read Whitepaper\".",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-the-hero-visual-direction-a-cinematic-night-scene-with-snow-and-neon-city-lighting-including-an-animated-wolf-character-that-moves-subtly-e-g-breathing-idle-motion-and-glowing-eyes-and-smooth-animated-cta-button-interactions",
-      "title": "Implement the Hero visual direction: a cinematic night scene with snow and neon city lighting, including an animated wolf character that moves subtly (e.g., breathing/idle motion and glowing eyes) and smooth animated CTA button interactions.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-smooth-scrolling-for-in-page-navigation-and-implement-parallax-fade-in-animations-across-sections-e-g-elements-fade-slide-in-when-scrolled-into-view-background-layers-move-at-different-speeds",
-      "title": "Add smooth scrolling for in-page navigation and implement parallax + fade-in animations across sections (e.g., elements fade/slide in when scrolled into view; background layers move at different speeds).",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-replace-or-repurpose-the-current-features-section-with-the-required-story-lore-section-title-the-legend-of-lost-wolf-and-the-provided-lore-paragraph-plus-an-animated-scene-of-the-wolf-standing-between-forest-and-buildings-city-skyline-on-one-side-forest-on-the-other",
-      "title": "Replace (or repurpose) the current \"Features\" section with the required Story / Lore section: title \"The Legend of Lost Wolf\" and the provided lore paragraph, plus an animated scene of the wolf standing between forest and buildings (city skyline on one side, forest on the other).",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-enhance-the-existing-tokenomics-section-by-adding-an-animated-glowing-pie-chart-or-donut-chart-that-displays-the-specified-distribution-35-public-sale-20-liquidity-pool-15-rewards-10-marketing-10-team-vested-5-airdrop-5-treasury-and-animate-it-e-g-rotating-slowly-while-keeping-the-existing-full-tokenomics-table-and-text-intact",
-      "title": "Enhance the existing Tokenomics section by adding an animated, glowing pie chart (or donut chart) that displays the specified distribution: 35% Public Sale, 20% Liquidity Pool, 15% Rewards, 10% Marketing, 10% Team (Vested), 5% Airdrop, 5% Treasury, and animate it (e.g., rotating slowly) while keeping the existing full tokenomics table and text intact.",
-      "reqIds": [
-        "REQ-10"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-roadmap-section-styled-as-a-quest-timeline-with-four-phases-and-the-exact-phase-titles-phase-1-awakening-phase-2-the-city-hunt-phase-3-partner-discovery-phase-4-pack-expansion-each-phase-must-include-glowing-icons-and-scroll-animation",
-      "title": "Add a Roadmap section styled as a \"Quest Timeline\" with four phases and the exact phase titles: Phase 1: Awakening; Phase 2: The City Hunt; Phase 3: Partner Discovery; Phase 4: Pack Expansion. Each phase must include glowing icons and scroll animation.",
-      "reqIds": [
-        "REQ-11"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-an-animated-gallery-section-containing-6-scenes-using-generated-illustrations-presented-as-a-responsive-gallery-grid-or-carousel-with-subtle-animations-on-hover-scroll-the-six-scenes-must-correspond-to-the-user-provided-list",
-      "title": "Add an \"Animated Gallery\" section containing 6 scenes using generated illustrations, presented as a responsive gallery (grid or carousel) with subtle animations on hover/scroll. The six scenes must correspond to the user-provided list.",
-      "reqIds": [
-        "REQ-12"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-community-section-that-invites-users-to-join-discord-twitter-x-and-telegram-and-includes-animated-social-icons-with-glowing-hover-effects",
-      "title": "Add a Community section that invites users to join Discord, Twitter/X, and Telegram, and includes animated social icons with glowing hover effects.",
-      "reqIds": [
-        "REQ-13"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-header-navigation-to-match-the-new-page-sections-hero-story-lore-tokenomics-roadmap-gallery-community-with-anchor-links-keep-it-sticky-and-add-an-optional-placeholder-wallet-connect-button-non-functional-placeholder",
-      "title": "Update the Header navigation to match the new page sections (Hero, Story/Lore, Tokenomics, Roadmap, Gallery, Community) with anchor links, keep it sticky, and add an optional placeholder \"Wallet Connect\" button (non-functional placeholder).",
-      "reqIds": [
-        "REQ-14"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-footer-to-include-links-labels-for-terms-privacy-and-contact-and-display-copyright-2026-lost-wolf-coin-as-the-footer-copyright-text",
-      "title": "Update the Footer to include links/labels for \"Terms\", \"Privacy\", and \"Contact\", and display \"Copyright © 2026 Lost Wolf Coin\" as the footer copyright text.",
-      "reqIds": [
-        "REQ-15"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-ensure-the-entire-site-is-mobile-responsive-and-maintains-the-cinematic-neon-dark-look-across-common-breakpoints-including-the-hero-full-screen-layout-gallery-timeline-and-tokenomics-chart",
-      "title": "Ensure the entire site is mobile responsive and maintains the cinematic neon-dark look across common breakpoints, including the hero full-screen layout, gallery, timeline, and tokenomics chart.",
-      "reqIds": [
-        "REQ-16"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-generated-illustration-assets-as-static-files-under-frontend-public-assets-generated-and-use-them-in-the-hero-story-lore-scene-and-gallery-sections-do-not-serve-generated-images-from-the-backend",
-      "title": "Add generated illustration assets as static files under frontend/public/assets/generated and use them in the Hero, Story/Lore scene, and Gallery sections. Do not serve generated images from the backend.",
-      "reqIds": [
-        "REQ-17"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-new-front-page-section-titled-presale-that-appears-on-the-homepage-single-page-layout-and-matches-the-existing-cinematic-neon-dark-styling-glow-effects-rounded-cards-scroll-fade-in-animation-patterns-the-section-must-have-id-presale-for-in-page-navigation",
-      "title": "Add a new front-page section titled \"Presale\" that appears on the homepage (single-page layout) and matches the existing cinematic neon-dark styling (glow effects, rounded cards, scroll/fade-in animation patterns). The section must have id=\"presale\" for in-page navigation.",
-      "reqIds": [
-        "REQ-18"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-a-presale-phase-ui-that-shows-three-phases-phase-1-active-phase-2-waiting-and-final-stage-waiting-phase-1-must-display-that-15-is-sold-as-a-progress-indicator-phase-2-and-final-stage-must-be-visibly-locked-disabled-and-show-waiting-for-phase-2-and-waiting-for-final-stage-messaging-english",
-      "title": "Implement a presale phase UI that shows three phases: Phase 1 (active), Phase 2 (waiting), and Final Stage (waiting). Phase 1 must display that 15% is sold (as a progress indicator). Phase 2 and Final Stage must be visibly locked/disabled and show \"Waiting for Phase 2\" and \"Waiting for Final Stage\" messaging (English).",
-      "reqIds": [
-        "REQ-19"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-countdown-timer-for-the-currently-active-presale-phase-phase-1-that-updates-at-least-once-per-second-and-displays-time-remaining-in-a-clear-format-days-hours-minutes-seconds-the-countdown-target-datetime-must-be-configurable-via-constants-in-the-presale-component-no-backend-required",
-      "title": "Add a countdown timer for the currently active presale phase (Phase 1) that updates at least once per second and displays time remaining in a clear format (days/hours/minutes/seconds). The countdown target datetime must be configurable via constants in the Presale component (no backend required).",
-      "reqIds": [
-        "REQ-20"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-sold-tokens-countdown-indicator-for-phase-1-that-updates-live-at-least-once-per-second-alongside-the-phase-timer-it-must-show-both-tokens-sold-and-tokens-remaining-for-phase-1-and-visually-align-with-the-existing-neon-ui-e-g-progress-bar-numeric-labels-the-sold-remaining-values-must-be-computed-from-configurable-constants-e-g-total-tokens-allocated-to-phase-1-and-start-time-end-time-without-requiring-backend-integration",
-      "title": "Add a \"sold tokens\" countdown/indicator for Phase 1 that updates live (at least once per second) alongside the phase timer. It must show both tokens sold and tokens remaining for Phase 1, and visually align with the existing neon UI (e.g., progress bar + numeric labels). The sold/remaining values must be computed from configurable constants (e.g., total tokens allocated to Phase 1 and start time/end time), without requiring backend integration.",
-      "reqIds": [
-        "REQ-21"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-presale-link-to-the-sticky-header-navigation-desktop-and-mobile-menus-that-smooth-scrolls-to-the-new-presale-section",
-      "title": "Add a \"Presale\" link to the sticky header navigation (desktop and mobile menus) that smooth-scrolls to the new Presale section.",
-      "reqIds": [
-        "REQ-22"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-integrate-the-presale-section-into-the-single-page-layout-composition-so-it-renders-on-the-homepage-without-breaking-existing-sections-hero-story-tokenomics-roadmap-gallery-community-footer",
-      "title": "Integrate the Presale section into the single-page layout composition so it renders on the homepage without breaking existing sections (Hero, Story, Tokenomics, Roadmap, Gallery, Community, Footer).",
-      "reqIds": [
-        "REQ-23"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-second-pie-donut-chart-visualization-inside-the-meme-coin-style-version-fun-viral-card-in-the-tokenomics-section-to-visually-represent-the-same-lwolf-allocation-breakdown-35-public-sale-20-liquidity-15-rewards-10-marketing-10-dev-team-5-airdrops-5-treasury-while-keeping-the-existing-meme-style-text-content-intact-and-in-english",
-      "title": "Add a second pie/donut chart visualization inside the \"🐺 Meme Coin Style Version (Fun + Viral)\" card in the Tokenomics section to visually represent the same $LWOLF allocation breakdown (35% Public Sale, 20% Liquidity, 15% Rewards, 10% Marketing, 10% Dev Team, 5% Airdrops, 5% Treasury), while keeping the existing meme-style text content intact and in English.",
-      "reqIds": [
-        "REQ-24"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-ensure-the-meme-coin-style-pie-donut-chart-matches-the-existing-neon-dark-styling-and-animations-used-by-the-current-tokenomics-chart-glow-hover-feedback-scroll-entrance-animation-and-remains-mobile-responsive-chart-and-legend-content-stack-cleanly-on-small-screens",
-      "title": "Ensure the Meme Coin Style pie/donut chart matches the existing neon dark styling and animations used by the current Tokenomics chart (glow, hover feedback, scroll/entrance animation), and remains mobile-responsive (chart and legend/content stack cleanly on small screens).",
-      "reqIds": [
-        "REQ-25"
       ],
       "version": 1
     }
@@ -213,55 +28,20 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Replace the word \"penguin\" with \"WOLF\" on the created Caffeine site",
+      "summary": "Add a temporary download button/export mechanism so user can download all website/project files (then remove the button)",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-2",
-      "summary": "Add a \"LOST WOLF COIN ($LWOLF) — Full Tokenomics\" section/page with the provided supply details, allocation breakdown, professional whitepaper copy, and meme-style version",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Create a premium dark-themed cinematic Web3 website for Lost Wolf Coin ($LWOLF) with icy blue neon highlights, smooth scrolling, parallax/fade-in animations, bold typography, and rounded crypto UI cards",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Add required site sections and content: Hero (headline/subtext/buttons), Story/Lore, Tokenomics (animated rotating chart), Roadmap (4-phase quest timeline), Animated Gallery (6 scenes), Community (Discord/X/Telegram), and Footer (Terms/Privacy/Contact/Copyright 2026)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Implement animated illustration elements: subtle wolf character animation (breathing/glowing eyes), split background (city skyline + forest), and glowing UI/hover effects across the site",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Add extra UX features: mobile responsive layout, sticky navbar, smooth-scroll anchor navigation, animated CTA buttons, and an optional placeholder wallet connect button",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Add a front-page Presale section with a countdown timer, Phase 1 showing 15% sold, and additional phases (2nd and final stage) plus a countdown/indicator for sold tokens",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-8",
-      "summary": "Add a pie chart visualization for the \"Meme Coin Style Version (Fun + Viral)\" content (in addition to the existing tokenomics pie/donut chart)",
-      "reqIds": [],
+      "summary": "Implement a backend mechanism to store, serve, and delete a single Project ZIP archive so the user can download all project files and then remove the archive afterward.",
+      "reqIds": [
+        "REQ-1"
+      ],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Lost Wolf Coin ($LWOLF) cinematic dark-themed token website",
+  "projectName": "Add temporary Project ZIP download button with backend export and removal",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

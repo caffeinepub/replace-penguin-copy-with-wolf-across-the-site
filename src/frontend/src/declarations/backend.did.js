@@ -8,10 +8,40 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const idlService = IDL.Service({});
+export const UserRole = IDL.Variant({
+  'admin' : IDL.Null,
+  'user' : IDL.Null,
+  'guest' : IDL.Null,
+});
+
+export const idlService = IDL.Service({
+  '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+  'deleteProjectZip' : IDL.Func([], [], []),
+  'downloadProjectZip' : IDL.Func([], [IDL.Vec(IDL.Nat8)], ['query']),
+  'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+  'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+  'uploadProjectZip' : IDL.Func([IDL.Vec(IDL.Nat8)], [], []),
+});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
+export const idlFactory = ({ IDL }) => {
+  const UserRole = IDL.Variant({
+    'admin' : IDL.Null,
+    'user' : IDL.Null,
+    'guest' : IDL.Null,
+  });
+  
+  return IDL.Service({
+    '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+    'deleteProjectZip' : IDL.Func([], [], []),
+    'downloadProjectZip' : IDL.Func([], [IDL.Vec(IDL.Nat8)], ['query']),
+    'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+    'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+    'uploadProjectZip' : IDL.Func([IDL.Vec(IDL.Nat8)], [], []),
+  });
+};
 
 export const init = ({ IDL }) => { return []; };

@@ -1,67 +1,78 @@
 {
   "kind": "build_request",
-  "title": "Add a pie chart visualization to the Meme Coin Style (Fun + Viral) tokenomics subsection",
+  "title": "Add temporary Project ZIP download button with backend export and removal",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-24",
-      "text": "Add a second pie/donut chart visualization inside the \"🐺 Meme Coin Style Version (Fun + Viral)\" card in the Tokenomics section to visually represent the same $LWOLF allocation breakdown (35% Public Sale, 20% Liquidity, 15% Rewards, 10% Marketing, 10% Dev Team, 5% Airdrops, 5% Treasury), while keeping the existing meme-style text content intact and in English.",
-      "target": "frontend",
+      "id": "REQ-1",
+      "text": "Implement a backend mechanism to store, serve, and delete a single Project ZIP archive so the user can download all project files and then remove the archive afterward.",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "recent-messages"
         ],
         "quotes": [
-          "Meme Coin Style Version (Fun + Viral)  make in PIE Chart also"
+          "or create a download button after i download will remove it"
         ]
       },
       "acceptanceCriteria": [
-        "The Tokenomics section still contains the existing main animated tokenomics chart and allocation table unchanged.",
-        "Within the Meme Coin Style card, a pie/donut chart is rendered in addition to (not instead of) the existing meme-style bullet lines.",
-        "The meme chart displays exactly these seven slices and percentages: 35, 20, 15, 10, 10, 5, 5, matching the meme bullets (Public Sale, Liquidity, Rewards, Marketing, Dev Team, Airdrops, Treasury).",
-        "All user-facing text remains in English and the existing meme copy remains present and readable."
+        "Backend exposes a query or update method that returns the stored ZIP as raw bytes (e.g., Blob) suitable for a browser download.",
+        "Backend exposes an update method to delete/clear the stored ZIP so it is no longer downloadable after removal.",
+        "Backend persists the stored ZIP across upgrades using stable state (no migration file unless the existing state layout requires it).",
+        "Backend prevents unauthorized callers from uploading/replacing/clearing the ZIP (at minimum, restrict write operations to an owner/admin principal)."
       ]
     },
     {
-      "id": "REQ-25",
-      "text": "Ensure the Meme Coin Style pie/donut chart matches the existing neon dark styling and animations used by the current Tokenomics chart (glow, hover feedback, scroll/entrance animation), and remains mobile-responsive (chart and legend/content stack cleanly on small screens).",
+      "id": "REQ-2",
+      "text": "Implement the currently-empty frontend component `frontend/src/components/ProjectZipDownload.tsx` as a temporary admin-only UI that lets a user download the Project ZIP and then remove/disable it after download.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "recent-messages"
         ],
         "quotes": [
-          "Meme Coin Style Version (Fun + Viral)  make in PIE Chart also"
+          "or create a download button after i download will remove it"
         ]
       },
       "acceptanceCriteria": [
-        "The meme chart uses the same overall visual language as the existing TokenomicsChart (neon glow/shadows, smooth transitions).",
-        "On mobile widths, the meme chart does not overflow horizontally and the layout remains readable (chart and supporting content stack vertically).",
-        "If reduced-motion is enabled by the user, the meme chart does not force continuous rotation animations (follow the app’s existing motion conventions)."
+        "`ProjectZipDownload` renders a clear English UI with: (1) a \"Download Project ZIP\" action and (2) a \"Remove/Disable Download\" action.",
+        "The download action calls the backend to fetch the ZIP bytes and triggers a browser file download named `project.zip` (or a similarly clear ZIP filename).",
+        "The remove/disable action calls the backend clear/delete method and updates the UI to indicate the download is no longer available.",
+        "The component is not visible to normal visitors by default; it is only shown in an admin-only mode (e.g., controlled by a simple client-side gate like a query param/flag)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Wire the temporary Project ZIP download UI into the app in a way that does not reintroduce the removed download section on the public landing page (hero), while still allowing the user to access it when needed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "create a download button after i download will remove it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No new public \"Download Project ZIP\" button appears in `Hero` or the default landing-page flow.",
+        "Admin-only access to the download UI is available from the running app (e.g., via a gated section rendered in the Footer or an admin-only route/section).",
+        "The addition does not break existing page layout or section scrolling/navigation."
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/components/ui (Shadcn components); compose them instead.",
-    "Backend changes are not required for this request; keep the Motoko backend unchanged."
+    "Do not edit files under `frontend/src/components/ui` (compose existing UI components instead).",
+    "Do not modify immutable hook files: `frontend/src/hooks/useInternetIdentity.ts(x)`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`.",
+    "Keep all Motoko backend logic in `backend/main.mo` (single-actor architecture).",
+    "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Do not replace or remove the existing main Tokenomics animated chart at the top of the Tokenomics section.",
-    "Do not change the token allocation values, table rows, or existing whitepaper/professional copy.",
-    "Do not add backend-driven tokenomics or presale logic as part of this change."
+    "Adding third-party auth providers (only Internet Identity is supported).",
+    "Adding external databases or non-Motoko backend services.",
+    "Building a general-purpose file manager UI beyond a single ZIP download + removal flow."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

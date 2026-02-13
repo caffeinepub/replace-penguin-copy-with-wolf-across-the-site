@@ -1,13 +1,24 @@
 import { Heart } from 'lucide-react';
+import { ProjectZipDownload } from './ProjectZipDownload';
+import { isAdminModeEnabled } from '../utils/adminGate';
 
 export function Footer() {
   const appIdentifier = typeof window !== 'undefined' 
     ? encodeURIComponent(window.location.hostname)
     : 'unknown-app';
 
+  const showAdminSection = isAdminModeEnabled();
+
   return (
     <footer className="border-t border-primary/20 bg-background/95 backdrop-blur-xl">
       <div className="container py-12">
+        {/* Admin-only section - only visible with ?admin=true or #admin=true */}
+        {showAdminSection && (
+          <div className="mb-12 pb-8 border-b border-primary/20">
+            <ProjectZipDownload />
+          </div>
+        )}
+
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="text-lg font-bold mb-4 text-foreground font-display glow-text">Lost Wolf Coin</h3>
