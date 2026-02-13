@@ -1,8 +1,37 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { SiDiscord, SiX, SiTelegram } from 'react-icons/si';
+import { SiDiscord, SiX, SiInstagram, SiFacebook, SiReddit } from 'react-icons/si';
 import { useInView } from '@/hooks/useInView';
 import { useRef } from 'react';
+import { COMMUNITY_SOCIAL_LINKS } from '@/config/socialLinks';
+
+const socialPlatforms = [
+  {
+    key: 'discord',
+    icon: SiDiscord,
+    ...COMMUNITY_SOCIAL_LINKS.discord,
+  },
+  {
+    key: 'instagram',
+    icon: SiInstagram,
+    ...COMMUNITY_SOCIAL_LINKS.instagram,
+  },
+  {
+    key: 'facebook',
+    icon: SiFacebook,
+    ...COMMUNITY_SOCIAL_LINKS.facebook,
+  },
+  {
+    key: 'twitter',
+    icon: SiX,
+    ...COMMUNITY_SOCIAL_LINKS.twitter,
+  },
+  {
+    key: 'reddit',
+    icon: SiReddit,
+    ...COMMUNITY_SOCIAL_LINKS.reddit,
+  },
+];
 
 export function Community() {
   const ref = useRef<HTMLElement>(null);
@@ -23,50 +52,53 @@ export function Community() {
           </p>
         </div>
         
-        <Card className={`max-w-3xl mx-auto neon-border bg-card/80 backdrop-blur-xl hover:glow-lg transition-all duration-1000 delay-300 ${isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+        <Card className={`max-w-4xl mx-auto neon-border bg-card/80 backdrop-blur-xl hover:glow-lg transition-all duration-1000 delay-300 ${isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <CardHeader>
             <CardTitle className="text-2xl text-center font-display">Connect With Us</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-6 md:grid-cols-3">
-              {/* Discord */}
-              <Button 
-                variant="outline"
-                size="lg"
-                className="h-auto flex-col gap-4 p-6 border-primary/50 hover:bg-primary/10 hover:glow-md transition-all group"
-              >
-                <SiDiscord className="h-12 w-12 text-primary group-hover:animate-bounce-subtle" />
-                <div className="text-center">
-                  <div className="font-bold text-lg mb-1">Discord</div>
-                  <div className="text-xs text-muted-foreground">Join our community</div>
-                </div>
-              </Button>
-
-              {/* Twitter/X */}
-              <Button 
-                variant="outline"
-                size="lg"
-                className="h-auto flex-col gap-4 p-6 border-primary/50 hover:bg-primary/10 hover:glow-md transition-all group"
-              >
-                <SiX className="h-12 w-12 text-primary group-hover:animate-bounce-subtle" />
-                <div className="text-center">
-                  <div className="font-bold text-lg mb-1">Twitter/X</div>
-                  <div className="text-xs text-muted-foreground">Follow for updates</div>
-                </div>
-              </Button>
-
-              {/* Telegram */}
-              <Button 
-                variant="outline"
-                size="lg"
-                className="h-auto flex-col gap-4 p-6 border-primary/50 hover:bg-primary/10 hover:glow-md transition-all group"
-              >
-                <SiTelegram className="h-12 w-12 text-primary group-hover:animate-bounce-subtle" />
-                <div className="text-center">
-                  <div className="font-bold text-lg mb-1">Telegram</div>
-                  <div className="text-xs text-muted-foreground">Chat with the pack</div>
-                </div>
-              </Button>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {socialPlatforms.map((platform) => {
+                const Icon = platform.icon;
+                const isDisabled = !platform.url;
+                
+                if (isDisabled) {
+                  return (
+                    <div
+                      key={platform.key}
+                      className="h-auto flex flex-col gap-4 p-6 border border-muted/30 rounded-lg bg-muted/5 opacity-50 cursor-not-allowed"
+                    >
+                      <Icon className="h-12 w-12 text-muted-foreground mx-auto" />
+                      <div className="text-center">
+                        <div className="font-bold text-lg mb-1">{platform.name}</div>
+                        <div className="text-xs text-muted-foreground">Coming soon</div>
+                      </div>
+                    </div>
+                  );
+                }
+                
+                return (
+                  <Button
+                    key={platform.key}
+                    variant="outline"
+                    size="lg"
+                    className="h-auto flex-col gap-4 p-6 border-primary/50 hover:bg-primary/10 hover:glow-md transition-all group"
+                    asChild
+                  >
+                    <a
+                      href={platform.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Icon className="h-12 w-12 text-primary group-hover:animate-bounce-subtle" />
+                      <div className="text-center">
+                        <div className="font-bold text-lg mb-1">{platform.name}</div>
+                        <div className="text-xs text-muted-foreground">{platform.description}</div>
+                      </div>
+                    </a>
+                  </Button>
+                );
+              })}
             </div>
           </CardContent>
         </Card>

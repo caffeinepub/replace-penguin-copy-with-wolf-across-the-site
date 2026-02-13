@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Add a temporary, admin-only way to download a single Project ZIP from the app, and then remove/disable the download after use.
+**Goal:** Add outbound social media links for Discord, Instagram, Facebook, Twitter/X, and Reddit to the Community section and align the footer Community links to match.
 
 **Planned changes:**
-- Backend: store and persist a single Project ZIP archive; provide a read method that returns the ZIP bytes for browser download.
-- Backend: add an owner/admin-restricted method to clear/delete the stored ZIP so it is no longer downloadable.
-- Frontend: implement `frontend/src/components/ProjectZipDownload.tsx` with two actions: “Download Project ZIP” and “Remove/Disable Download”, with clear status messaging.
-- Frontend: gate the component so it is not shown to normal visitors (e.g., enabled only via an admin-only flag/query param) and wire access somewhere that does not re-add a public download section on the landing page.
+- Update `frontend/src/components/Community.tsx` to render 5 distinct social link cards/buttons (Discord, Instagram, Facebook, Twitter/X, Reddit) as real outbound anchors that open in a new tab with `rel="noopener noreferrer"`, while preserving the existing neon/glow styling and responsiveness.
+- Add a single configuration object/constant in the Community component for the 5 platform URLs; when a URL is empty/undefined, render the corresponding item as disabled/non-clickable with an “unavailable” indication while keeping layout consistent.
+- Update `frontend/src/components/Footer.tsx` Community link list to include Discord, Instagram, Facebook, Twitter/X, and Reddit, linking to the same configured external URLs and opening in a new tab with `rel="noopener noreferrer"`.
 
-**User-visible outcome:** In admin-only mode, the user can download `project.zip` from the app and then remove/disable the download so it’s no longer available; normal visitors won’t see the download UI.
+**User-visible outcome:** Users can click clearly labeled Discord/Instagram/Facebook/Twitter/X/Reddit items in the Community section and footer to open the correct external pages in a new tab (or see an unavailable/disabled state if a link isn’t configured).

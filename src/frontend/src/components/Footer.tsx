@@ -1,6 +1,7 @@
 import { Heart } from 'lucide-react';
 import { ProjectZipDownload } from './ProjectZipDownload';
 import { isAdminModeEnabled } from '../utils/adminGate';
+import { COMMUNITY_SOCIAL_LINKS } from '@/config/socialLinks';
 
 export function Footer() {
   const appIdentifier = typeof window !== 'undefined' 
@@ -48,15 +49,72 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-foreground">Community</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#community" className="hover:text-primary transition-colors">Join Discord</a></li>
-              <li><a href="#community" className="hover:text-primary transition-colors">Follow on X</a></li>
-              <li><a href="#community" className="hover:text-primary transition-colors">Telegram Group</a></li>
+              {COMMUNITY_SOCIAL_LINKS.discord.url && (
+                <li>
+                  <a 
+                    href={COMMUNITY_SOCIAL_LINKS.discord.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Join Discord
+                  </a>
+                </li>
+              )}
+              {COMMUNITY_SOCIAL_LINKS.instagram.url && (
+                <li>
+                  <a 
+                    href={COMMUNITY_SOCIAL_LINKS.instagram.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Follow on Instagram
+                  </a>
+                </li>
+              )}
+              {COMMUNITY_SOCIAL_LINKS.facebook.url && (
+                <li>
+                  <a 
+                    href={COMMUNITY_SOCIAL_LINKS.facebook.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Like on Facebook
+                  </a>
+                </li>
+              )}
+              {COMMUNITY_SOCIAL_LINKS.twitter.url && (
+                <li>
+                  <a 
+                    href={COMMUNITY_SOCIAL_LINKS.twitter.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Follow on X
+                  </a>
+                </li>
+              )}
+              {COMMUNITY_SOCIAL_LINKS.reddit.url && (
+                <li>
+                  <a 
+                    href={COMMUNITY_SOCIAL_LINKS.reddit.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Join on Reddit
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>Copyright © 2026 Lost Wolf Coin</p>
+          <p>Copyright © {new Date().getFullYear()} Lost Wolf Coin</p>
           <p className="flex items-center gap-1">
             Built with <Heart className="h-4 w-4 text-primary fill-primary animate-pulse-glow" /> using{' '}
             <a 

@@ -1,53 +1,59 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Temporary admin-only Project ZIP download + removal UI (frontend wiring)",
+  "title": "Social media links in Community section and Footer",
   "requirements": [
     {
-      "id": "REQ-2",
-      "summary": "Implement ProjectZipDownload admin-only UI to download ZIP bytes and remove/disable availability",
+      "id": "REQ-1",
+      "summary": "Render five social platform items in the Community section as outbound links opening in a new tab while preserving existing neon/glow responsive styling.",
       "acceptanceCriteria": [
-        "`ProjectZipDownload` renders a clear English UI with: (1) a \"Download Project ZIP\" action and (2) a \"Remove/Disable Download\" action.",
-        "The download action calls the backend to fetch the ZIP bytes and triggers a browser file download named `project.zip` (or a similarly clear ZIP filename).",
-        "The remove/disable action calls the backend clear/delete method and updates the UI to indicate the download is no longer available.",
-        "The component is not visible to normal visitors by default; it is only shown in an admin-only mode (e.g., controlled by a simple client-side gate like a query param/flag)."
+        "The Community section (frontend/src/components/Community.tsx) shows 5 distinct items: Discord, Instagram, Facebook, Twitter/X, and Reddit.",
+        "Each item is clickable and navigates to its configured URL using an anchor/link behavior (not a no-op button).",
+        "Each outbound link opens in a new tab and uses rel=\"noopener noreferrer\".",
+        "User-facing labels are spelled correctly and in English (e.g., \"Twitter/X\" or \"X\").",
+        "Layout remains responsive and visually consistent with the existing Community card styling (neon/glow theme)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ProjectZipDownload.tsx",
+          "path": "frontend/src/components/Community.tsx",
           "operation": "modify",
-          "description": "Implement the previously-empty ProjectZipDownload component with English UI, using shadcn-ui Button for actions (Download Project ZIP, Remove/Disable Download). Wire it to backend capabilities via useActor(): call downloadProjectZip() to fetch bytes and trigger a browser download (e.g., Blob/object URL) with a clear filename like project.zip, and call deleteProjectZip() for removal/disable. Use the authorization system’s admin check (e.g., actor.isCallerAdmin()) plus a simple client-side gate to ensure it is hidden by default; show an access-denied or login-required message when not allowed. Verify the component's usage instructions before implementing."
+          "description": "Replace the current 3 CTA buttons (Discord, Twitter/X, Telegram) with 5 social link cards/buttons (Discord, Instagram, Facebook, Twitter/X, Reddit) rendered as real outbound anchors (<a>) using target=\"_blank\" and rel=\"noopener noreferrer\". Keep the existing Card layout and neon/glow styling by continuing to use shadcn-ui Button/Card composition (e.g., Button with link behavior/asChild if supported). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Centralize Community social URLs into a single configuration and ensure empty URLs render as disabled/non-clickable items without breaking layout.",
+      "acceptanceCriteria": [
+        "Community component has a single, clearly named configuration object/constant for the five platform URLs.",
+        "If a URL is empty or undefined, the corresponding UI state is non-clickable/disabled and clearly indicates it is unavailable (while preserving layout)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/config/socialLinks.ts",
+          "operation": "create",
+          "description": "Create a single configuration export (e.g., COMMUNITY_SOCIAL_LINKS) that defines URL placeholders/constants for Discord, Instagram, Facebook, Twitter/X, and Reddit (default to empty strings). This file is the single place to update channel/profile URLs."
         },
         {
-          "path": "frontend/src/utils/projectZipDownload.ts",
-          "operation": "create",
-          "description": "Add a small frontend utility to convert Uint8Array ZIP bytes into a browser download (create Blob, object URL, click an anchor, and revoke URL). Keep it UI-agnostic so ProjectZipDownload can call it for consistent download behavior and filenames."
-        },
-        {
-          "path": "frontend/src/utils/adminGate.ts",
-          "operation": "create",
-          "description": "Add a lightweight helper for determining whether the temporary admin-only mode is enabled (e.g., based on a URL param or hash secret using existing urlParams helpers). This is a client-side visibility gate only; ProjectZipDownload should still rely on backend authorization checks (via the authorization system) for any privileged action. Verify the component's usage instructions before implementing."
+          "path": "frontend/src/components/Community.tsx",
+          "operation": "modify",
+          "description": "Refactor to import the centralized social URL config and drive rendering from a single data list. Implement a disabled/unavailable state when a URL is empty/undefined (non-clickable, clearly indicated, while preserving the same grid layout and visual consistency). Continue using shadcn-ui Button/Card styling patterns without modifying files under frontend/src/components/ui. Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Wire the temporary download UI into the app in a non-public, gated location (not Hero/landing flow)",
+      "summary": "Update Footer Community links to match the supported platforms and link externally (not #community) using the same configured URLs.",
       "acceptanceCriteria": [
-        "No new public \"Download Project ZIP\" button appears in `Hero` or the default landing-page flow.",
-        "Admin-only access to the download UI is available from the running app (e.g., via a gated section rendered in the Footer or an admin-only route/section).",
-        "The addition does not break existing page layout or section scrolling/navigation."
+        "Footer community links (frontend/src/components/Footer.tsx) include Discord, Instagram, Facebook, Twitter/X, and Reddit.",
+        "Footer community links open the configured external URLs in a new tab with rel=\"noopener noreferrer\".",
+        "Footer no longer lists platforms not requested (e.g., Telegram) unless explicitly retained in addition to the requested ones."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Add a gated, admin-only section in the Footer that renders the ProjectZipDownload component only when the client-side admin mode gate is enabled (e.g., URL param/secret) and does not appear for normal visitors. Ensure this does not add any new download button/link in Hero and does not disrupt existing footer layout or anchor navigation/scrolling. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Confirm no public wiring of ProjectZipDownload is introduced in the main landing flow; keep Hero and other public sections unchanged. If needed for clarity/maintenance, add a minimal comment or ensure the only integration point remains the gated Footer section (no new public routes/pages)."
+          "description": "Update the Footer Community link list to include exactly Discord, Instagram, Facebook, Twitter/X, and Reddit. Import the centralized social URL config and render each as an external anchor with target=\"_blank\" and rel=\"noopener noreferrer\" (remove Telegram and stop linking to #community for these items)."
         }
       ]
     }

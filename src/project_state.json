@@ -2,23 +2,29 @@
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
   "summary": "New project",
-  "architectural_notes": [
-    "If implementing a download button, restrict access (auth/admin-only) and plan to remove/disable it after download; consider using a backend export endpoint to package files (e.g., ZIP) rather than exposing raw directories."
-  ],
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-implement-the-currently-empty-frontend-component-frontend-src-components-projectzipdownload-tsx-as-a-temporary-admin-only-ui-that-lets-a-user-download-the-project-zip-and-then-remove-disable-it-after-download",
-      "title": "Implement the currently-empty frontend component `frontend/src/components/ProjectZipDownload.tsx` as a temporary admin-only UI that lets a user download the Project ZIP and then remove/disable it after download.",
+      "id": "feature-update-the-community-section-to-display-social-media-link-cards-buttons-for-discord-instagram-facebook-twitter-x-and-reddit-5-total-and-make-each-item-an-actual-outbound-link-that-opens-in-a-new-tab",
+      "title": "Update the Community section to display social media link cards/buttons for Discord, Instagram, Facebook, Twitter/X, and Reddit (5 total) and make each item an actual outbound link that opens in a new tab.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-configurable-url-placeholders-constants-for-each-social-platform-link-used-in-the-community-section-so-the-actual-channel-profile-urls-can-be-set-in-one-place-without-changing-the-component-structure",
+      "title": "Add configurable URL placeholders/constants for each social platform link used in the Community section so the actual channel/profile URLs can be set in one place without changing the component structure.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-wire-the-temporary-project-zip-download-ui-into-the-app-in-a-way-that-does-not-reintroduce-the-removed-download-section-on-the-public-landing-page-hero-while-still-allowing-the-user-to-access-it-when-needed",
-      "title": "Wire the temporary Project ZIP download UI into the app in a way that does not reintroduce the removed download section on the public landing page (hero), while still allowing the user to access it when needed.",
+      "id": "feature-update-the-footer-community-link-list-to-match-the-community-section-s-supported-platforms-discord-instagram-facebook-twitter-x-reddit-and-ensure-each-footer-link-points-to-the-appropriate-external-url-not-just-community",
+      "title": "Update the Footer \"Community\" link list to match the Community section’s supported platforms (Discord, Instagram, Facebook, Twitter/X, Reddit) and ensure each footer link points to the appropriate external URL (not just #community).",
       "reqIds": [
         "REQ-3"
       ],
@@ -28,20 +34,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add a temporary download button/export mechanism so user can download all website/project files (then remove the button)",
+      "summary": "Add a Community section containing social media links (Discord, Instagram, Facebook, Twitter, Reddit)",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Implement a backend mechanism to store, serve, and delete a single Project ZIP archive so the user can download all project files and then remove the archive afterward.",
-      "reqIds": [
-        "REQ-1"
-      ],
       "status": "pending"
     }
   ],
-  "projectName": "Add temporary Project ZIP download button with backend export and removal",
+  "projectName": "Add social media links (Discord, Instagram, Facebook, Twitter/X, Reddit) to the Community section",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

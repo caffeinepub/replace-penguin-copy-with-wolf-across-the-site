@@ -3,7 +3,7 @@
   "frontend/src/components/Header.tsx": "Sticky navigation header with Lost Wolf Coin branding, smooth scroll anchor links to all sections including Presale, mobile menu, and non-functional Wallet Connect placeholder button with neon styling.",
   "frontend/src/components/Hero.tsx": "Full-screen hero section with parallax background, animated wolf with glowing eyes, exact headline/subtext, and three CTAs (Buy $LWOLF, Join The Pack, Read Whitepaper) with neon glow effects.",
   "frontend/src/components/Features.tsx": "Features section displaying four key WOLF benefits in a responsive card grid with icons and descriptions.",
-  "frontend/src/components/Footer.tsx": "Footer component with Lost Wolf Coin branding, navigation links, copyright, Caffeine.ai attribution, and gated admin-only section that renders ProjectZipDownload when admin mode is enabled via URL parameter.",
+  "frontend/src/components/Footer.tsx": "Footer component with Lost Wolf Coin branding, navigation links, dynamic copyright year, Caffeine.ai attribution, and community links section that conditionally renders external social platform links based on configured URLs.",
   "frontend/src/index.css": "Global styles with icy-blue neon OKLCH color system for dark theme, custom glow utilities, scroll animations, and cinematic keyframes with reduced-motion support.",
   "frontend/tailwind.config.js": "Tailwind configuration extended with Orbitron display font, neon glow shadows, cinematic animations (float, pulse-glow, breathe, rotate-slow), and chart color tokens.",
   "frontend/index.html": "HTML entry point with Lost Wolf Coin branding, dark mode enabled by default, and meta description for the cinematic crypto landing page.",
@@ -13,7 +13,7 @@
   "frontend/src/components/TokenomicsChart.tsx": "Animated glowing donut chart component displaying all seven token allocation categories with slow rotation animation, neon glow effects, and interactive legend.",
   "frontend/src/components/Roadmap.tsx": "Quest timeline roadmap section with four exact phases (Awakening, City Hunt, Partner Discovery, Pack Expansion), glowing icons, and scroll-triggered animations in alternating layout.",
   "frontend/src/components/Gallery.tsx": "Animated gallery section displaying exactly six cinematic scene cards in responsive grid with hover glow effects, scale animations, and scroll-triggered reveals.",
-  "frontend/src/components/Community.tsx": "Community section with Discord, Twitter/X, and Telegram CTAs featuring animated glowing social icons with bounce effects and neon hover states.",
+  "frontend/src/components/Community.tsx": "Community section component displaying five social platform cards (Discord, Instagram, Facebook, Twitter/X, Reddit) as clickable external links with neon styling, disabled state for empty URLs, and responsive grid layout.",
   "frontend/src/hooks/useInView.ts": "Custom IntersectionObserver hook for scroll-triggered animations that reveals elements when they enter viewport with configurable threshold, now accepting nullable element refs.",
   "frontend/src/hooks/useParallax.ts": "Lightweight parallax scroll hook for background layers with graceful degradation for reduced-motion preferences.",
   "frontend/src/hooks/useCountdown.ts": "React hook that calculates and returns live countdown time (days, hours, minutes, seconds) to a target date, updating every second with an ended flag when time expires.",
@@ -23,5 +23,6 @@
   "frontend/src/components/ProjectZipDownload.tsx": "Admin-only component with Download Project ZIP and Remove Download buttons, backend authorization check via isCallerAdmin(), error handling, loading states, and confirmation dialog for deletion.",
   "README.md": "Comprehensive project documentation with installation instructions, project structure, features list, tech stack, customization guide, build commands, and deployment instructions for the Lost Wolf Coin landing page.",
   "frontend/src/utils/projectZipDownload.ts": "Utility function to convert Uint8Array ZIP bytes into a browser download by creating a properly typed Uint8Array, Blob, object URL, and triggering an anchor click with automatic cleanup.",
-  "frontend/src/utils/adminGate.ts": "Lightweight client-side helper that checks URL parameters (?admin=true or #admin=true) to determine if admin-only UI should be visible; not a security measure, backend authorization is still required."
+  "frontend/src/utils/adminGate.ts": "Lightweight client-side helper that checks URL parameters (?admin=true or #admin=true) to determine if admin-only UI should be visible; not a security measure, backend authorization is still required.",
+  "frontend/src/config/socialLinks.ts": "Centralized configuration file exporting COMMUNITY_SOCIAL_LINKS object with URL placeholders and metadata for Discord, Instagram, Facebook, Twitter/X, and Reddit social platforms."
 }

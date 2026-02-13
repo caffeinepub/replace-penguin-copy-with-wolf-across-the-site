@@ -1,75 +1,71 @@
 {
   "kind": "build_request",
-  "title": "Add temporary Project ZIP download button with backend export and removal",
+  "title": "Add social media links (Discord, Instagram, Facebook, Twitter/X, Reddit) to the Community section",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Implement a backend mechanism to store, serve, and delete a single Project ZIP archive so the user can download all project files and then remove the archive afterward.",
-      "target": "backend",
+      "text": "Update the Community section to display social media link cards/buttons for Discord, Instagram, Facebook, Twitter/X, and Reddit (5 total) and make each item an actual outbound link that opens in a new tab.",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages"
+          "msg-1"
         ],
         "quotes": [
-          "or create a download button after i download will remove it"
+          "add socialmedia link \n\ndiscord channel\n\nInstagram channel\n\nfacebook \n\ntwiiter\n\nredditt\nin a communtity section"
         ]
       },
       "acceptanceCriteria": [
-        "Backend exposes a query or update method that returns the stored ZIP as raw bytes (e.g., Blob) suitable for a browser download.",
-        "Backend exposes an update method to delete/clear the stored ZIP so it is no longer downloadable after removal.",
-        "Backend persists the stored ZIP across upgrades using stable state (no migration file unless the existing state layout requires it).",
-        "Backend prevents unauthorized callers from uploading/replacing/clearing the ZIP (at minimum, restrict write operations to an owner/admin principal)."
+        "The Community section (frontend/src/components/Community.tsx) shows 5 distinct items: Discord, Instagram, Facebook, Twitter/X, and Reddit.",
+        "Each item is clickable and navigates to its configured URL using an anchor/link behavior (not a no-op button).",
+        "Each outbound link opens in a new tab and uses rel=\"noopener noreferrer\".",
+        "User-facing labels are spelled correctly and in English (e.g., \"Twitter/X\" or \"X\").",
+        "Layout remains responsive and visually consistent with the existing Community card styling (neon/glow theme)."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Implement the currently-empty frontend component `frontend/src/components/ProjectZipDownload.tsx` as a temporary admin-only UI that lets a user download the Project ZIP and then remove/disable it after download.",
+      "text": "Add configurable URL placeholders/constants for each social platform link used in the Community section so the actual channel/profile URLs can be set in one place without changing the component structure.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages"
+          "msg-1"
         ],
         "quotes": [
-          "or create a download button after i download will remove it"
+          "discord channel\n\nInstagram channel\n\nfacebook \n\ntwiiter\n\nredditt"
         ]
       },
       "acceptanceCriteria": [
-        "`ProjectZipDownload` renders a clear English UI with: (1) a \"Download Project ZIP\" action and (2) a \"Remove/Disable Download\" action.",
-        "The download action calls the backend to fetch the ZIP bytes and triggers a browser file download named `project.zip` (or a similarly clear ZIP filename).",
-        "The remove/disable action calls the backend clear/delete method and updates the UI to indicate the download is no longer available.",
-        "The component is not visible to normal visitors by default; it is only shown in an admin-only mode (e.g., controlled by a simple client-side gate like a query param/flag)."
+        "Community component has a single, clearly named configuration object/constant for the five platform URLs.",
+        "If a URL is empty or undefined, the corresponding UI state is non-clickable/disabled and clearly indicates it is unavailable (while preserving layout)."
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Wire the temporary Project ZIP download UI into the app in a way that does not reintroduce the removed download section on the public landing page (hero), while still allowing the user to access it when needed.",
+      "text": "Update the Footer \"Community\" link list to match the Community section’s supported platforms (Discord, Instagram, Facebook, Twitter/X, Reddit) and ensure each footer link points to the appropriate external URL (not just #community).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages"
+          "msg-1"
         ],
         "quotes": [
-          "create a download button after i download will remove it"
+          "add socialmedia link ... in a communtity section"
         ]
       },
       "acceptanceCriteria": [
-        "No new public \"Download Project ZIP\" button appears in `Hero` or the default landing-page flow.",
-        "Admin-only access to the download UI is available from the running app (e.g., via a gated section rendered in the Footer or an admin-only route/section).",
-        "The addition does not break existing page layout or section scrolling/navigation."
+        "Footer community links (frontend/src/components/Footer.tsx) include Discord, Instagram, Facebook, Twitter/X, and Reddit.",
+        "Footer community links open the configured external URLs in a new tab with rel=\"noopener noreferrer\".",
+        "Footer no longer lists platforms not requested (e.g., Telegram) unless explicitly retained in addition to the requested ones."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under `frontend/src/components/ui` (compose existing UI components instead).",
-    "Do not modify immutable hook files: `frontend/src/hooks/useInternetIdentity.ts(x)`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`.",
-    "Keep all Motoko backend logic in `backend/main.mo` (single-actor architecture).",
-    "Use English for any user-facing text."
+    "Do not modify files under frontend/src/components/ui (read-only UI component sources).",
+    "Keep changes limited to frontend social/community UI; no backend changes are required."
   ],
   "nonGoals": [
-    "Adding third-party auth providers (only Internet Identity is supported).",
-    "Adding external databases or non-Motoko backend services.",
-    "Building a general-purpose file manager UI beyond a single ZIP download + removal flow."
+    "Adding third-party embeds (e.g., Instagram feed widgets) or API integrations for social platforms.",
+    "Implementing authentication or account linking for social platforms."
   ],
   "imageRequirements": {
     "required": [],

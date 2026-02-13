@@ -2,12 +2,30 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-implement-the-currently-empty-frontend-component-frontend-src-components-projectzipdownload-tsx-as-a-temporary-admin-only-ui-that-lets-a-user-download-the-project-zip-and-then-remove-disable-it-after-download",
-      "featureTitle": "Implement the currently-empty frontend component `frontend/src/components/ProjectZipDownload.tsx` as a temporary admin-only UI that lets a user download the Project ZIP and then remove/disable it after download.",
+      "featureId": "feature-update-the-community-section-to-display-social-media-link-cards-buttons-for-discord-instagram-facebook-twitter-x-and-reddit-5-total-and-make-each-item-an-actual-outbound-link-that-opens-in-a-new-tab",
+      "featureTitle": "Update the Community section to display social media link cards/buttons for Discord, Instagram, Facebook, Twitter/X, and Reddit (5 total) and make each item an actual outbound link that opens in a new tab.",
       "files": [
-        "frontend/src/components/ProjectZipDownload.tsx",
-        "frontend/src/utils/adminGate.ts",
-        "frontend/src/utils/projectZipDownload.ts"
+        "frontend/src/components/Community.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-configurable-url-placeholders-constants-for-each-social-platform-link-used-in-the-community-section-so-the-actual-channel-profile-urls-can-be-set-in-one-place-without-changing-the-component-structure",
+      "featureTitle": "Add configurable URL placeholders/constants for each social platform link used in the Community section so the actual channel/profile URLs can be set in one place without changing the component structure.",
+      "files": [
+        "frontend/src/components/Community.tsx",
+        "frontend/src/config/socialLinks.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -23,8 +41,8 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-wire-the-temporary-project-zip-download-ui-into-the-app-in-a-way-that-does-not-reintroduce-the-removed-download-section-on-the-public-landing-page-hero-while-still-allowing-the-user-to-access-it-when-needed",
-      "featureTitle": "Wire the temporary Project ZIP download UI into the app in a way that does not reintroduce the removed download section on the public landing page (hero), while still allowing the user to access it when needed.",
+      "featureId": "feature-update-the-footer-community-link-list-to-match-the-community-section-s-supported-platforms-discord-instagram-facebook-twitter-x-reddit-and-ensure-each-footer-link-points-to-the-appropriate-external-url-not-just-community",
+      "featureTitle": "Update the Footer \"Community\" link list to match the Community section’s supported platforms (Discord, Instagram, Facebook, Twitter/X, Reddit) and ensure each footer link points to the appropriate external URL (not just #community).",
       "files": [
         "frontend/src/components/Footer.tsx"
       ],
