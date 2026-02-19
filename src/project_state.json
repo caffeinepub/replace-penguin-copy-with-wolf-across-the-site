@@ -1,30 +1,34 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
+  "summary": "Lostwolf coin website with a roadmap showing DEX soft launch on March 31st and Tier 1 exchange launch 3 months later",
+  "architectural_notes": [
+    "Homepage includes roadmap section with visual timeline",
+    "Launch button serves as both visual indicator and interactive element that opens modal/expands section with detailed launch information",
+    "Roadmap shows two phases: DEX soft launch (March 31st) and Tier 1 exchange launch (~3 months later)"
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-community-section-to-display-social-media-link-cards-buttons-for-discord-instagram-facebook-twitter-x-and-reddit-5-total-and-make-each-item-an-actual-outbound-link-that-opens-in-a-new-tab",
-      "title": "Update the Community section to display social media link cards/buttons for Discord, Instagram, Facebook, Twitter/X, and Reddit (5 total) and make each item an actual outbound link that opens in a new tab.",
+      "id": "feature-add-a-new-roadmap-section-on-the-homepage-that-displays-a-prominent-launch-button-showing-the-dex-soft-launch-date-of-march-31st-as-a-visual-indicator",
+      "title": "Add a new roadmap section on the homepage that displays a prominent Launch button showing the DEX soft launch date of March 31st as a visual indicator",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-configurable-url-placeholders-constants-for-each-social-platform-link-used-in-the-community-section-so-the-actual-channel-profile-urls-can-be-set-in-one-place-without-changing-the-component-structure",
-      "title": "Add configurable URL placeholders/constants for each social platform link used in the Community section so the actual channel/profile URLs can be set in one place without changing the component structure.",
+      "id": "feature-make-the-launch-button-clickable-to-reveal-detailed-wolf-pack-launch-information-including-the-soft-launch-on-dex-march-31st-with-initial-expansion-of-wolf-world-description-and-the-tier-1-exchange-launch-approximately-3-months-later-end-of-june",
+      "title": "Make the Launch button clickable to reveal detailed Wolf Pack launch information including the soft launch on DEX (March 31st) with 'Initial Expansion of Wolf World' description and the Tier 1 exchange launch approximately 3 months later (end of June)",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-footer-community-link-list-to-match-the-community-section-s-supported-platforms-discord-instagram-facebook-twitter-x-reddit-and-ensure-each-footer-link-points-to-the-appropriate-external-url-not-just-community",
-      "title": "Update the Footer \"Community\" link list to match the Community section’s supported platforms (Discord, Instagram, Facebook, Twitter/X, Reddit) and ensure each footer link points to the appropriate external URL (not just #community).",
+      "id": "feature-integrate-the-new-roadmap-section-seamlessly-into-the-existing-homepage-layout-using-consistent-styling-animations-and-theme-elements-matching-the-wolf-pack-aesthetic",
+      "title": "Integrate the new roadmap section seamlessly into the existing homepage layout using consistent styling, animations, and theme elements matching the wolf/pack aesthetic",
       "reqIds": [
         "REQ-3"
       ],
@@ -34,12 +38,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add a Community section containing social media links (Discord, Instagram, Facebook, Twitter, Reddit)",
+      "summary": "Add roadmap section on homepage with Launch button showing DEX launch date (March 31st) and Wolf Pack launch details",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Add social media links (Discord, Instagram, Facebook, Twitter/X, Reddit) to the Community section",
+  "projectName": "Lostwolf",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

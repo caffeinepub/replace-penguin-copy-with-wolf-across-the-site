@@ -1,59 +1,70 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Social media links in Community section and Footer",
+  "title": "Add interactive launch roadmap section to homepage",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Render five social platform items in the Community section as outbound links opening in a new tab while preserving existing neon/glow responsive styling.",
+      "summary": "Add a new roadmap section on the homepage that displays a prominent Launch button showing the DEX soft launch date of March 31st as a visual indicator",
       "acceptanceCriteria": [
-        "The Community section (frontend/src/components/Community.tsx) shows 5 distinct items: Discord, Instagram, Facebook, Twitter/X, and Reddit.",
-        "Each item is clickable and navigates to its configured URL using an anchor/link behavior (not a no-op button).",
-        "Each outbound link opens in a new tab and uses rel=\"noopener noreferrer\".",
-        "User-facing labels are spelled correctly and in English (e.g., \"Twitter/X\" or \"X\").",
-        "Layout remains responsive and visually consistent with the existing Community card styling (neon/glow theme)."
+        "Launch button is prominently displayed in a roadmap section on the homepage",
+        "Button clearly shows the date March 31st as the DEX launch date",
+        "Button has an eye-catching design that fits the wolf/pack theme"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Community.tsx",
+          "path": "frontend/src/components/LaunchRoadmap.tsx",
+          "operation": "create",
+          "description": "Create a new LaunchRoadmap component that displays a prominent Launch button with the March 31st DEX soft launch date. The component should use useInView hook for scroll animations matching other homepage sections. The button should feature eye-catching wolf/pack themed design with neon glow effects consistent with the existing visual aesthetic. Include hover effects and accessibility attributes."
+        },
+        {
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Replace the current 3 CTA buttons (Discord, Twitter/X, Telegram) with 5 social link cards/buttons (Discord, Instagram, Facebook, Twitter/X, Reddit) rendered as real outbound anchors (<a>) using target=\"_blank\" and rel=\"noopener noreferrer\". Keep the existing Card layout and neon/glow styling by continuing to use shadcn-ui Button/Card composition (e.g., Button with link behavior/asChild if supported). Verify the component's usage instructions before implementing."
+          "description": "Import and integrate the new LaunchRoadmap component into the homepage layout. Position it between the Presale and existing Roadmap sections to maintain logical flow. Ensure proper section spacing and responsive behavior consistent with other sections."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Centralize Community social URLs into a single configuration and ensure empty URLs render as disabled/non-clickable items without breaking layout.",
+      "summary": "Make the Launch button clickable to reveal detailed Wolf Pack launch information including the soft launch on DEX (March 31st) with 'Initial Expansion of Wolf World' description and the Tier 1 exchange launch approximately 3 months later (end of June)",
       "acceptanceCriteria": [
-        "Community component has a single, clearly named configuration object/constant for the five platform URLs.",
-        "If a URL is empty or undefined, the corresponding UI state is non-clickable/disabled and clearly indicates it is unavailable (while preserving layout)."
+        "Clicking the Launch button opens a modal or expands a section with detailed launch information",
+        "Details include Soft Launch on DEX (March 31st) with phase description 'Initial Expansion of Wolf World'",
+        "Details include Tier 1 Exchange Launch milestone approximately 3 months after soft launch (around end of June)",
+        "The expanded view presents the roadmap phases in a clear, visually appealing timeline format"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/config/socialLinks.ts",
-          "operation": "create",
-          "description": "Create a single configuration export (e.g., COMMUNITY_SOCIAL_LINKS) that defines URL placeholders/constants for Discord, Instagram, Facebook, Twitter/X, and Reddit (default to empty strings). This file is the single place to update channel/profile URLs."
+          "path": "frontend/src/components/LaunchRoadmap.tsx",
+          "operation": "modify",
+          "description": "Implement click handler and state management for the Launch button to toggle a modal or expanded section. Create a detailed launch timeline view displaying two phases: 1) Soft Launch on DEX (March 31st) with 'Initial Expansion of Wolf World' description, and 2) Tier 1 Exchange Launch (approximately end of June, ~3 months after soft launch). Present phases in a clear vertical timeline format with phase indicators, dates, and descriptions. Include smooth animations for expand/collapse transitions and modal backdrop if using modal approach."
         },
         {
-          "path": "frontend/src/components/Community.tsx",
-          "operation": "modify",
-          "description": "Refactor to import the centralized social URL config and drive rendering from a single data list. Implement a disabled/unavailable state when a URL is empty/undefined (non-clickable, clearly indicated, while preserving the same grid layout and visual consistency). Continue using shadcn-ui Button/Card styling patterns without modifying files under frontend/src/components/ui. Verify the component's usage instructions before implementing."
+          "path": "frontend/src/components/LaunchModal.tsx",
+          "operation": "create",
+          "description": "Create a reusable LaunchModal component to display the expanded launch details in an overlay. Include backdrop click-to-close, ESC key handler, focus trap, and ARIA attributes for accessibility. Style consistently with the wolf/pack theme using neon accents and dark background. Display the two launch phases with clear typography hierarchy, icons, and animations when the modal opens."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Update Footer Community links to match the supported platforms and link externally (not #community) using the same configured URLs.",
+      "summary": "Integrate the new roadmap section seamlessly into the existing homepage layout using consistent styling, animations, and theme elements matching the wolf/pack aesthetic",
       "acceptanceCriteria": [
-        "Footer community links (frontend/src/components/Footer.tsx) include Discord, Instagram, Facebook, Twitter/X, and Reddit.",
-        "Footer community links open the configured external URLs in a new tab with rel=\"noopener noreferrer\".",
-        "Footer no longer lists platforms not requested (e.g., Telegram) unless explicitly retained in addition to the requested ones."
+        "Roadmap section is positioned appropriately within the homepage flow",
+        "Section uses consistent color scheme, typography, and spacing from existing components",
+        "Animations and transitions match the style of other homepage sections",
+        "Section is fully responsive across desktop, tablet, and mobile viewports"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Footer.tsx",
+          "path": "frontend/src/components/LaunchRoadmap.tsx",
           "operation": "modify",
-          "description": "Update the Footer Community link list to include exactly Discord, Instagram, Facebook, Twitter/X, and Reddit. Import the centralized social URL config and render each as an external anchor with target=\"_blank\" and rel=\"noopener noreferrer\" (remove Telegram and stop linking to #community for these items)."
+          "description": "Apply consistent styling matching existing homepage sections. Use the same color variables from index.css (OKLCH color scheme), typography scale from Tailwind config, and section padding/spacing patterns. Implement responsive breakpoints (mobile, tablet, desktop) matching other sections. Add scroll-triggered animations using the useInView hook consistent with Features, Gallery, and Story components. Ensure neon glow effects and hover states match the wolf/pack aesthetic throughout the site."
+        },
+        {
+          "path": "frontend/src/components/LaunchModal.tsx",
+          "operation": "modify",
+          "description": "Style the modal using the same theme variables, typography, and spacing as other components. Implement responsive layout for mobile, tablet, and desktop viewports. Add smooth enter/exit animations for the modal and backdrop. Use consistent button styles, neon accent colors, and wolf-themed visual elements. Ensure proper z-index layering and backdrop blur effects matching the site aesthetic."
         }
       ]
     }

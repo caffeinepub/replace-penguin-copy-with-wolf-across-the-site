@@ -1,32 +1,53 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Lock, Clock, TrendingUp } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
 import { useCountdown } from '@/hooks/useCountdown';
-import { useLinearTokenProgress } from '@/hooks/useLinearTokenProgress';
 
 // Configurable constants for Phase 1
-const PHASE_1_START = new Date('2026-02-01T00:00:00Z');
-const PHASE_1_END = new Date('2026-03-15T23:59:59Z');
+// Phase 1 started 2 days ago and runs for 60 days total
+const PHASE_1_DURATION_DAYS = 60;
+const PHASE_1_DAYS_ELAPSED = 2;
+const PHASE_1_START = new Date(Date.now() - PHASE_1_DAYS_ELAPSED * 24 * 60 * 60 * 1000);
+const PHASE_1_END = new Date(PHASE_1_START.getTime() + PHASE_1_DURATION_DAYS * 24 * 60 * 60 * 1000);
+
 const PHASE_1_TOTAL_TOKENS = 10_000_000;
-const PHASE_1_BASELINE_SOLD_PERCENT = 15; // 15% sold
-const PHASE_1_BASELINE_SOLD_TOKENS = (PHASE_1_TOTAL_TOKENS * PHASE_1_BASELINE_SOLD_PERCENT) / 100;
+const PHASE_1_SOLD_PERCENT = 8; // 8% sold (baseline)
+const PHASE_1_BASELINE_SOLD_TOKENS = Math.floor((PHASE_1_TOTAL_TOKENS * PHASE_1_SOLD_PERCENT) / 100);
+
+// Visual increment rate: 5 tokens per second
+const TOKENS_PER_SECOND = 5;
 
 export function Presale() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { threshold: 0.1 });
 
   const countdown = useCountdown(PHASE_1_END);
-  const tokenProgress = useLinearTokenProgress({
-    phaseStart: PHASE_1_START,
-    phaseEnd: PHASE_1_END,
-    totalTokens: PHASE_1_TOTAL_TOKENS,
-    baselineSoldTokens: PHASE_1_BASELINE_SOLD_TOKENS,
-  });
 
-  const soldPercentage = (tokenProgress.sold / PHASE_1_TOTAL_TOKENS) * 100;
+  // Visual counter state - starts from baseline and increments by 5 per second
+  const [soldTokens, setSoldTokens] = useState(PHASE_1_BASELINE_SOLD_TOKENS);
+
+  useEffect(() => {
+    // Increment sold tokens by 5 every second
+    const interval = setInterval(() => {
+      setSoldTokens((prev) => {
+        const next = prev + TOKENS_PER_SECOND;
+        // Clamp to total tokens - never exceed the phase 1 total
+        return Math.min(next, PHASE_1_TOTAL_TOKENS);
+      });
+    }, 1000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  // Derive remaining tokens (never below 0)
+  const remainingTokens = Math.max(PHASE_1_TOTAL_TOKENS - soldTokens, 0);
+
+  // Calculate percentage sold (consistent rounding)
+  const percentSold = Math.round((soldTokens / PHASE_1_TOTAL_TOKENS) * 100);
 
   return (
     <section
@@ -102,22 +123,25 @@ export function Presale() {
 
               {/* Token Progress */}
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <TrendingUp className="h-4 w-4" />
-                  <span>Token Sales Progress</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <TrendingUp className="h-4 w-4" />
+                    <span>Token Sales Progress</span>
+                  </div>
+                  <span className="text-sm font-semibold text-primary">{percentSold}% sold</span>
                 </div>
-                <Progress value={soldPercentage} className="h-3" />
+                <Progress value={percentSold} className="h-3" />
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="space-y-1">
                     <p className="text-muted-foreground">Tokens Sold</p>
                     <p className="text-lg font-semibold text-primary">
-                      {tokenProgress.sold.toLocaleString()}
+                      {soldTokens.toLocaleString()}
                     </p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-muted-foreground">Tokens Remaining</p>
                     <p className="text-lg font-semibold text-foreground">
-                      {tokenProgress.remaining.toLocaleString()}
+                      {remainingTokens.toLocaleString()}
                     </p>
                   </div>
                 </div>

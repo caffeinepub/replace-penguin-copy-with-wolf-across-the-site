@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-community-section-to-display-social-media-link-cards-buttons-for-discord-instagram-facebook-twitter-x-and-reddit-5-total-and-make-each-item-an-actual-outbound-link-that-opens-in-a-new-tab",
-      "featureTitle": "Update the Community section to display social media link cards/buttons for Discord, Instagram, Facebook, Twitter/X, and Reddit (5 total) and make each item an actual outbound link that opens in a new tab.",
+      "featureId": "feature-add-a-new-roadmap-section-on-the-homepage-that-displays-a-prominent-launch-button-showing-the-dex-soft-launch-date-of-march-31st-as-a-visual-indicator",
+      "featureTitle": "Add a new roadmap section on the homepage that displays a prominent Launch button showing the DEX soft launch date of March 31st as a visual indicator",
       "files": [
-        "frontend/src/components/Community.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/LaunchRoadmap.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -21,11 +22,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-configurable-url-placeholders-constants-for-each-social-platform-link-used-in-the-community-section-so-the-actual-channel-profile-urls-can-be-set-in-one-place-without-changing-the-component-structure",
-      "featureTitle": "Add configurable URL placeholders/constants for each social platform link used in the Community section so the actual channel/profile URLs can be set in one place without changing the component structure.",
+      "featureId": "feature-make-the-launch-button-clickable-to-reveal-detailed-wolf-pack-launch-information-including-the-soft-launch-on-dex-march-31st-with-initial-expansion-of-wolf-world-description-and-the-tier-1-exchange-launch-approximately-3-months-later-end-of-june",
+      "featureTitle": "Make the Launch button clickable to reveal detailed Wolf Pack launch information including the soft launch on DEX (March 31st) with 'Initial Expansion of Wolf World' description and the Tier 1 exchange launch approximately 3 months later (end of June)",
       "files": [
-        "frontend/src/components/Community.tsx",
-        "frontend/src/config/socialLinks.ts"
+        "frontend/src/components/LaunchModal.tsx",
+        "frontend/src/components/LaunchRoadmap.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -41,10 +42,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-footer-community-link-list-to-match-the-community-section-s-supported-platforms-discord-instagram-facebook-twitter-x-reddit-and-ensure-each-footer-link-points-to-the-appropriate-external-url-not-just-community",
-      "featureTitle": "Update the Footer \"Community\" link list to match the Community section’s supported platforms (Discord, Instagram, Facebook, Twitter/X, Reddit) and ensure each footer link points to the appropriate external URL (not just #community).",
+      "featureId": "feature-integrate-the-new-roadmap-section-seamlessly-into-the-existing-homepage-layout-using-consistent-styling-animations-and-theme-elements-matching-the-wolf-pack-aesthetic",
+      "featureTitle": "Integrate the new roadmap section seamlessly into the existing homepage layout using consistent styling, animations, and theme elements matching the wolf/pack aesthetic",
       "files": [
-        "frontend/src/components/Footer.tsx"
+        "frontend/src/components/LaunchModal.tsx",
+        "frontend/src/components/LaunchRoadmap.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

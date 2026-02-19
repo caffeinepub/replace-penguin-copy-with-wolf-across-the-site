@@ -1,71 +1,78 @@
 {
   "kind": "build_request",
-  "title": "Add social media links (Discord, Instagram, Facebook, Twitter/X, Reddit) to the Community section",
+  "title": "Add interactive launch roadmap section to homepage",
+  "projectName": "Lostwolf Coin",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the Community section to display social media link cards/buttons for Discord, Instagram, Facebook, Twitter/X, and Reddit (5 total) and make each item an actual outbound link that opens in a new tab.",
+      "text": "Add a new roadmap section on the homepage that displays a prominent Launch button showing the DEX soft launch date of March 31st as a visual indicator",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-final"
         ],
         "quotes": [
-          "add socialmedia link \n\ndiscord channel\n\nInstagram channel\n\nfacebook \n\ntwiiter\n\nredditt\nin a communtity section"
+          "Add a Launch button in a roadmap that Lostwold coin launch 31 March on dex for intial expansion of wolf world",
+          "The Launch button should be a visual indicator as well a clickable"
         ]
       },
       "acceptanceCriteria": [
-        "The Community section (frontend/src/components/Community.tsx) shows 5 distinct items: Discord, Instagram, Facebook, Twitter/X, and Reddit.",
-        "Each item is clickable and navigates to its configured URL using an anchor/link behavior (not a no-op button).",
-        "Each outbound link opens in a new tab and uses rel=\"noopener noreferrer\".",
-        "User-facing labels are spelled correctly and in English (e.g., \"Twitter/X\" or \"X\").",
-        "Layout remains responsive and visually consistent with the existing Community card styling (neon/glow theme)."
+        "Launch button is prominently displayed in a roadmap section on the homepage",
+        "Button clearly shows the date March 31st as the DEX launch date",
+        "Button has an eye-catching design that fits the wolf/pack theme"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add configurable URL placeholders/constants for each social platform link used in the Community section so the actual channel/profile URLs can be set in one place without changing the component structure.",
+      "text": "Make the Launch button clickable to reveal detailed Wolf Pack launch information including the soft launch on DEX (March 31st) with 'Initial Expansion of Wolf World' description and the Tier 1 exchange launch approximately 3 months later (end of June)",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-final"
         ],
         "quotes": [
-          "discord channel\n\nInstagram channel\n\nfacebook \n\ntwiiter\n\nredditt"
+          "after someone click on it it shows the further details about the launching of the wolf pack",
+          "consider a sof launch on Dex after 3 month coin will launch on Tier 1 exchange"
         ]
       },
       "acceptanceCriteria": [
-        "Community component has a single, clearly named configuration object/constant for the five platform URLs.",
-        "If a URL is empty or undefined, the corresponding UI state is non-clickable/disabled and clearly indicates it is unavailable (while preserving layout)."
+        "Clicking the Launch button opens a modal or expands a section with detailed launch information",
+        "Details include Soft Launch on DEX (March 31st) with phase description 'Initial Expansion of Wolf World'",
+        "Details include Tier 1 Exchange Launch milestone approximately 3 months after soft launch (around end of June)",
+        "The expanded view presents the roadmap phases in a clear, visually appealing timeline format"
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Update the Footer \"Community\" link list to match the Community section’s supported platforms (Discord, Instagram, Facebook, Twitter/X, Reddit) and ensure each footer link points to the appropriate external URL (not just #community).",
+      "text": "Integrate the new roadmap section seamlessly into the existing homepage layout using consistent styling, animations, and theme elements matching the wolf/pack aesthetic",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-final"
         ],
         "quotes": [
-          "add socialmedia link ... in a communtity section"
+          "add on a homepage"
         ]
       },
       "acceptanceCriteria": [
-        "Footer community links (frontend/src/components/Footer.tsx) include Discord, Instagram, Facebook, Twitter/X, and Reddit.",
-        "Footer community links open the configured external URLs in a new tab with rel=\"noopener noreferrer\".",
-        "Footer no longer lists platforms not requested (e.g., Telegram) unless explicitly retained in addition to the requested ones."
+        "Roadmap section is positioned appropriately within the homepage flow",
+        "Section uses consistent color scheme, typography, and spacing from existing components",
+        "Animations and transitions match the style of other homepage sections",
+        "Section is fully responsive across desktop, tablet, and mobile viewports"
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/components/ui (read-only UI component sources).",
-    "Keep changes limited to frontend social/community UI; no backend changes are required."
+    "Do not modify existing Roadmap.tsx component; create a new launch-specific roadmap component",
+    "Maintain existing homepage section order and layout",
+    "Use existing hooks like useInView for scroll animations to maintain consistency"
   ],
   "nonGoals": [
-    "Adding third-party embeds (e.g., Instagram feed widgets) or API integrations for social platforms.",
-    "Implementing authentication or account linking for social platforms."
+    "Backend integration for launch dates or dynamic roadmap content",
+    "User authentication or personalized launch notifications",
+    "Integration with external DEX platforms or exchange APIs",
+    "Email notifications or countdown timers beyond visual display"
   ],
   "imageRequirements": {
     "required": [],

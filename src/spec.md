@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Add outbound social media links for Discord, Instagram, Facebook, Twitter/X, and Reddit to the Community section and align the footer Community links to match.
+**Goal:** Add an interactive launch roadmap section to the homepage with a prominent Launch button displaying the DEX soft launch date of March 31st.
 
 **Planned changes:**
-- Update `frontend/src/components/Community.tsx` to render 5 distinct social link cards/buttons (Discord, Instagram, Facebook, Twitter/X, Reddit) as real outbound anchors that open in a new tab with `rel="noopener noreferrer"`, while preserving the existing neon/glow styling and responsiveness.
-- Add a single configuration object/constant in the Community component for the 5 platform URLs; when a URL is empty/undefined, render the corresponding item as disabled/non-clickable with an “unavailable” indication while keeping layout consistent.
-- Update `frontend/src/components/Footer.tsx` Community link list to include Discord, Instagram, Facebook, Twitter/X, and Reddit, linking to the same configured external URLs and opening in a new tab with `rel="noopener noreferrer"`.
+- Add a new roadmap section on the homepage with a Launch button showing March 31st DEX launch date
+- Make the Launch button clickable to reveal detailed Wolf Pack launch information including soft launch on DEX (March 31st) labeled "Initial Expansion of Wolf World" and Tier 1 exchange launch approximately 3 months later (end of June)
+- Integrate the roadmap section seamlessly into the existing homepage with consistent wolf/pack themed styling, animations, and responsive design
 
-**User-visible outcome:** Users can click clearly labeled Discord/Instagram/Facebook/Twitter/X/Reddit items in the Community section and footer to open the correct external pages in a new tab (or see an unavailable/disabled state if a link isn’t configured).
+**User-visible outcome:** Users can see a prominent Launch button on the homepage roadmap section and click it to view detailed launch phases including the March 31st DEX soft launch and subsequent Tier 1 exchange launch timeline.

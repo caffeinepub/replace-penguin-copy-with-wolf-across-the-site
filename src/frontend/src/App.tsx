@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Story } from './components/Story';
 import { Tokenomics } from './components/Tokenomics';
 import { Presale } from './components/Presale';
+import { LaunchRoadmap } from './components/LaunchRoadmap';
 import { Roadmap } from './components/Roadmap';
 import { Gallery } from './components/Gallery';
 import { Community } from './components/Community';
@@ -17,6 +18,7 @@ function App() {
         <Story />
         <Tokenomics />
         <Presale />
+        <LaunchRoadmap />
         <Roadmap />
         <Gallery />
         <Community />

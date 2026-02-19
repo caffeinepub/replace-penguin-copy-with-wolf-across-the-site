@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-13T07:52:23.445Z",
+  "generatedAt": "2026-02-19T06:25:35.517Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,49 +12,55 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the Community section to display social media link cards/buttons for Discord, Instagram, Facebook, Twitter/X, and Reddit (5 total) and make each item an actual outbound link that opens in a new tab.",
+        "summary": "Add a new roadmap section on the homepage that displays a prominent Launch button showing the DEX soft launch date of March 31st as a visual indicator",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Community.tsx"
+          "frontend/src/components/LaunchRoadmap.tsx",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/Community.tsx"
+          "frontend/src/components/LaunchRoadmap.tsx",
+          "frontend/src/App.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Add configurable URL placeholders/constants for each social platform link used in the Community section so the actual channel/profile URLs can be set in one place without changing the component structure.",
+        "summary": "Make the Launch button clickable to reveal detailed Wolf Pack launch information including the soft launch on DEX (March 31st) with 'Initial Expansion of Wolf World' description and the Tier 1 exchange launch approximately 3 months later (end of June)",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/config/socialLinks.ts",
-          "frontend/src/components/Community.tsx"
+          "frontend/src/components/LaunchRoadmap.tsx",
+          "frontend/src/components/LaunchModal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/config/socialLinks.ts",
-          "frontend/src/components/Community.tsx"
+          "frontend/src/components/LaunchRoadmap.tsx",
+          "frontend/src/components/LaunchModal.tsx"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Update the Footer \"Community\" link list to match the Community section’s supported platforms (Discord, Instagram, Facebook, Twitter/X, Reddit) and ensure each footer link points to the appropriate external URL (not just #community).",
+        "summary": "Integrate the new roadmap section seamlessly into the existing homepage layout using consistent styling, animations, and theme elements matching the wolf/pack aesthetic",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/LaunchRoadmap.tsx",
+          "frontend/src/components/LaunchModal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/Footer.tsx"
+          "frontend/src/components/LaunchRoadmap.tsx",
+          "frontend/src/components/LaunchModal.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
+    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/Community.tsx",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/config/socialLinks.ts",
+    "frontend/src/App.tsx",
+    "frontend/src/components/LaunchModal.tsx",
+    "frontend/src/components/LaunchRoadmap.tsx",
+    "frontend/src/config.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",
